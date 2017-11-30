@@ -50,9 +50,9 @@
   []
   (->> ratings
        (group-by :id)
-       #_(map compute-average-rating)
-       #_(sort-by second)
-       #_(reverse)
-       #_(map #(get movies (first %)))
-       #_(map :title)
-       #_(take 10)))
+       (map compute-average-rating)
+       (sort-by second)
+       (reverse)
+       (map #(get movies (first %)))
+       (map :title)
+       (take 10)))

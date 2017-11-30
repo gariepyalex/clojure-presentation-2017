@@ -7,6 +7,7 @@
   (+ 1 2 3 4) ;; Qu'est-ce qui ce passe ici?
 
   (def a (quote (+ 1 2 3 4))) ;; quote retire l'évaluation, sinon on aurait a = 10
+  '(+ 1 2 3 4)
   (type :toto)
   (type a)
   (type (quote a))
@@ -64,6 +65,7 @@
   (def accounts (take 100 (repeatedly random-account)))
 
   (filter broke? accounts)
+
   (filter (fn [account] (not (broke? account))) accounts)
   (filter #(not (broke? %)) accounts)
   (filter (complement broke?) accounts)
@@ -75,5 +77,11 @@
        (filter broke?)
        (sort-by :cash)
        (map :id)
-       (map #(str % " has not")))
+       (map #(str % " has not that much cash")))
+
+  (macroexpand '(->> accounts
+                     (filter broke?)
+                     (sort-by :cash)
+                     (map :id)
+                     (map #(str % " has not that much cash"))))
 )

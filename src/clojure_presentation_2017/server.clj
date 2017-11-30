@@ -6,9 +6,13 @@
             [clojure-presentation-2017.top10 :refer [top-10]]))
 
 
+(def another-state (atom 0))
+
+
 (defn home
   []
-  "Hello world")
+  (swap! another-state inc)
+  (str "Hello world " @another-state))
 
 (defn toto
   [id]
@@ -17,7 +21,7 @@
 
 (defn format-top-10
   [top-10]
-  (let [li        (map #(str "<li>" % "<li>") top-10)
+  (let [li        (map #(str "<li>" % "</li>") top-10)
         li-string (apply str li)]
     (str "<ul>" li-string "</ul>")))
 
@@ -25,7 +29,7 @@
 (defroutes app
   (GET "/" [] (home))
   (GET "/toto/:id" [id] (toto id))
-  (GET "/top10" [] "TODO")
+  (GET "/top10" [] (format-top-10 (top-10)))
   (route/not-found "Not found"))
 
 ;; Pour stocker l'état
