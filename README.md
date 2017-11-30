@@ -1,14 +1,11 @@
 # clojure-presentation-2017
 
-A Clojure library designed to ... well, that part is up to you.
+### Slides
 
-## Usage
+https://docs.google.com/presentation/d/1fcuptsCbcIz65W-hASS74Z2iAUdspl8hUJNa-jxjHWM/edit?usp=sharing
 
-FIXME
+### Liens
 
-## License
+https://www.braveclojure.com/clojure-for-the-brave-and-true/
 
-Copyright © 2017 FIXME
-
-Distributed under the Eclipse Public License either version 1.0 or (at
-your option) any later version.
+http://mishadoff.com/blog/clojure-design-patterns/
